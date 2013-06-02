@@ -6,7 +6,10 @@ PROCESS_ALL_ACCESS      =   ( 0x000F0000 | 0x00100000 | 0xFFF )
 VIRTUAL_MEM             =   ( 0x1000 | 0x2000 )
 
 kernel32 = windll.kernel32
-pid     = sys.argv[1]
+
+pid = input("What is the PID of the process to inject the DLL to? ")
+print("The pid that was just entered is: %s" % pid)
+#pid     = sys.argv[1]
 dll_path    = sys.argv[2]
 dll_len     = len(dll_path)
 
