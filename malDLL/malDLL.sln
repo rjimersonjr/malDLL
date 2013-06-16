@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "malDLL", "malDLL.pyproj", "{2B95AC32-7EDD-4A52-8667-2B6BB4F2AE44}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hookDLL", "..\hookDLL\hookDLL.vcxproj", "{BCE52F84-5282-47F9-B015-A4FD1B28D800}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dllToHook", "..\dllToHook\dllToHook.vcxproj", "{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,16 +21,16 @@ Global
 		{2B95AC32-7EDD-4A52-8667-2B6BB4F2AE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B95AC32-7EDD-4A52-8667-2B6BB4F2AE44}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2B95AC32-7EDD-4A52-8667-2B6BB4F2AE44}.Release|Win32.ActiveCfg = Release|Any CPU
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Debug|Win32.ActiveCfg = Debug|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Debug|Win32.Build.0 = Debug|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Release|Any CPU.ActiveCfg = Release|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Release|Win32.ActiveCfg = Release|Win32
-		{BCE52F84-5282-47F9-B015-A4FD1B28D800}.Release|Win32.Build.0 = Release|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Debug|Win32.Build.0 = Debug|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Release|Any CPU.ActiveCfg = Release|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Release|Win32.ActiveCfg = Release|Win32
+		{2FDF50D9-76A6-4EC7-A9CA-996C2BFEB725}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

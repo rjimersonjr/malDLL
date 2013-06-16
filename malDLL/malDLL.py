@@ -59,3 +59,12 @@ if not kernel32.CreateRemoteThread(h_process, None, 0, h_loadlib, arg_address, 0
     print ("[*] Failed to inject the DLL. Exiting.")
 
 print("[*] Remote thread with ID 0x%08x created." % thread_id.value)
+
+#Adding code to execute an exported function from the DLL
+h_exportedFunc = windll.kernel32.GetProcAddress(h_loadlib, b"helloWorld")
+
+if h_exportedFunc == False:
+            error = GetLastError()
+            print("ERROR with h_exportedFunc: %d - %s" % (error, FormatError(error)))
+else:
+            print("[*] The address for the helloWorld handle is %s" % hex(h_exportedFunc))
